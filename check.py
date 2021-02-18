@@ -8,7 +8,7 @@ from twilio.rest import Client
 # First parse the page and check if there are any first doses in Brookyln
 result = requests.get("https://nycvaccinelist.com")
 src = result.content
-soup = bs(src, 'lxml')
+soup = bs(src)
 
 locations = soup.find('script', attrs={'id': "__NEXT_DATA__"})
 
