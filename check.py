@@ -26,8 +26,7 @@ first_doses = list(filter(
 
 # Just send a text saying an appointment is available.
 # Account info from twilio.com/console
-if True: #len(first_doses) > 0:
-    first_doses = [{'name': 'test_heroku', 'url': 'some_url'}]
+if len(first_doses) > 0:
     locations = [(x['name'], x['url']) for x in first_doses]
 
     account_sid = os.environ['ACCOUNT_SID']
