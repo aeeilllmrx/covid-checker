@@ -38,7 +38,7 @@ if True: #len(first_doses) > 0:
         .create(
             body="Appointments available at {}".format(locations),
             from_=os.environ['FROM_NUM'],
-            to=os.environ['FROM_NUM']
+            to=os.environ['TO_NUM']
         )
 
 else:
