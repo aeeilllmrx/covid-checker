@@ -37,7 +37,14 @@ if len(first_doses) > 0:
         .create(
             body="Appointments available at {}".format(locations),
             from_=os.environ['FROM_NUM'],
-            to=os.environ['TO_NUM']
+            to=os.environ['TO_NUM_1']
+        )
+
+    message = client.messages \
+        .create(
+            body="Appointments available at {}".format(locations),
+            from_=os.environ['FROM_NUM'],
+            to=os.environ['TO_NUM_2']
         )
 
 else:
