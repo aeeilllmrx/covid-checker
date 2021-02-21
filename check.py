@@ -28,7 +28,8 @@ not_limited = list(filter(
     lambda z: not (
         z.get('name').startswith('Walgreen') or 
         z.get('name').startswith('Duane Reade') or
-        'Only' in z.get('name')
+        'only' in z.get('name').lower() or
+        'only' in z.get('publicNotes').lower()
     ),
     first_doses
 ))
