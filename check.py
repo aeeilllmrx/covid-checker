@@ -49,12 +49,14 @@ if len(not_limited) > 0:
             to=os.environ['TO_NUM_1']
         )
 
-    message = client.messages \
-        .create(
-            body="Appointments available at {}".format(locations),
-            from_=os.environ['FROM_NUM'],
-            to=os.environ['TO_NUM_2']
-        )
+    # Example of how to add more numbers
+    if False:
+        message = client.messages \
+            .create(
+                body="Appointments available at {}".format(locations),
+                from_=os.environ['FROM_NUM'],
+                to=os.environ['TO_NUM_2']
+            )
 
 else:
     print('no first doses available at this time')
