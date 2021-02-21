@@ -24,17 +24,19 @@ first_doses = list(filter(
     brooklyn_locations
 ))
 
-not_walgreens = list(filter(
+not_limited = list(filter(
     lambda z: not (
-        z.get('name').startswith('Walgreen') or z.get('name').startswith('Duane Reade')
+        z.get('name').startswith('Walgreen') or 
+        z.get('name').startswith('Duane Reade') or
+        'Only' in z.get('name')
     ),
     first_doses
 ))
 
 # Just send a text saying an appointment is available.
 # Account info from twilio.com/console
-if len(not_walgreens) > 0:
-    locations = [(x['name'], x['url']) for x in not_walgreens]
+if len(not_limited) > 0:
+    locations = [(x['name'], x['url']) for x in not_limited]
 
     account_sid = os.environ['ACCOUNT_SID']
     auth_token = os.environ['AUTH_TOKEN']
